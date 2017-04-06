@@ -23,7 +23,6 @@ namespace Launch
 
         BindingList<Command> _dataSource = new BindingList<Command>();
 
-
         public MainForm()
         {
             InitializeComponent();
