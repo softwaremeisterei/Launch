@@ -168,9 +168,9 @@ namespace Launch
         {
             _reorder = !_reorder;
             if (_reorder)
-                toolStripStatusLabel1.Text = "Reorder commands by drag && drop. Press Reorder again when finished.";
+                ShowStatus("Reorder commands by drag && drop. Press Reorder again when finished.");
             else
-                toolStripStatusLabel1.Text = "";
+                ShowStatus("");
         }
 
         private void commandListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -179,8 +179,13 @@ namespace Launch
 
             if (command != null)
             {
-                toolStripStatusLabel1.Text = $"{command.Application} {command.Arguments}";
+                ShowStatus($"{command.Application} {command.Arguments}");
             }
+        }
+
+        private void ShowStatus(string text)
+        {
+            toolStripStatusLabel1.Text = text;
         }
     }
 }
