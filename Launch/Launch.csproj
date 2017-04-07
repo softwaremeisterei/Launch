@@ -98,7 +98,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy $(TargetPath) c:\bin\</PostBuildEvent>
+    <PostBuildEvent>if exist c:\bin copy $(TargetPath) c:\bin\
+if exist c:\data\bin copy $(TargetPath) c:\data\bin\</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
