@@ -217,7 +217,14 @@ namespace Launch
 
             if (command != null && !string.IsNullOrEmpty(command.Application))
             {
-                Process.Start(command.Application, command.Arguments);
+                try
+                {
+                    Process.Start(command.Application, command.Arguments);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
         }
 
