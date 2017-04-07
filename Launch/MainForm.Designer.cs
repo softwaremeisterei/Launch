@@ -30,13 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.commandListBox = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.addButton = new System.Windows.Forms.Button();
-            this.editButton = new System.Windows.Forms.Button();
-            this.readerCheckBox = new System.Windows.Forms.CheckBox();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusStrip1.SuspendLayout();
+            this.editLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.addLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.reorderLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.deleteLinkLabel = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // commandListBox
@@ -47,9 +44,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.commandListBox.FormattingEnabled = true;
             this.commandListBox.ItemHeight = 16;
-            this.commandListBox.Location = new System.Drawing.Point(12, 45);
+            this.commandListBox.Location = new System.Drawing.Point(0, 2);
             this.commandListBox.Name = "commandListBox";
-            this.commandListBox.Size = new System.Drawing.Size(530, 276);
+            this.commandListBox.Size = new System.Drawing.Size(356, 212);
             this.commandListBox.TabIndex = 1;
             this.commandListBox.SelectedIndexChanged += new System.EventHandler(this.commandListBox_SelectedIndexChanged);
             this.commandListBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.commandListBox_DragDrop);
@@ -58,84 +55,69 @@
             this.commandListBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.commandListBox_KeyDown);
             this.commandListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.commandListBox_MouseDown);
             // 
-            // label1
+            // editLinkLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Commands:";
+            this.editLinkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.editLinkLabel.AutoSize = true;
+            this.editLinkLabel.Location = new System.Drawing.Point(41, 215);
+            this.editLinkLabel.Name = "editLinkLabel";
+            this.editLinkLabel.Size = new System.Drawing.Size(31, 17);
+            this.editLinkLabel.TabIndex = 6;
+            this.editLinkLabel.TabStop = true;
+            this.editLinkLabel.Text = "edit";
+            this.editLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.editLinkLabel_LinkClicked);
             // 
-            // addButton
+            // addLinkLabel
             // 
-            this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.addButton.Location = new System.Drawing.Point(386, 342);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(75, 23);
-            this.addButton.TabIndex = 2;
-            this.addButton.Text = "Add...";
-            this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            this.addLinkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.addLinkLabel.AutoSize = true;
+            this.addLinkLabel.Location = new System.Drawing.Point(3, 215);
+            this.addLinkLabel.Name = "addLinkLabel";
+            this.addLinkLabel.Size = new System.Drawing.Size(32, 17);
+            this.addLinkLabel.TabIndex = 6;
+            this.addLinkLabel.TabStop = true;
+            this.addLinkLabel.Text = "add";
+            this.addLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.addLinkLabel_LinkClicked);
             // 
-            // editButton
+            // reorderLinkLabel
             // 
-            this.editButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.editButton.Location = new System.Drawing.Point(467, 342);
-            this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(75, 23);
-            this.editButton.TabIndex = 3;
-            this.editButton.Text = "Edit...";
-            this.editButton.UseVisualStyleBackColor = true;
-            this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            this.reorderLinkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.reorderLinkLabel.AutoSize = true;
+            this.reorderLinkLabel.Location = new System.Drawing.Point(301, 215);
+            this.reorderLinkLabel.Name = "reorderLinkLabel";
+            this.reorderLinkLabel.Size = new System.Drawing.Size(55, 17);
+            this.reorderLinkLabel.TabIndex = 6;
+            this.reorderLinkLabel.TabStop = true;
+            this.reorderLinkLabel.Text = "reorder";
+            this.reorderLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.reorderLinkLabel_LinkClicked);
             // 
-            // readerCheckBox
+            // deleteLinkLabel
             // 
-            this.readerCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.readerCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.readerCheckBox.AutoSize = true;
-            this.readerCheckBox.Location = new System.Drawing.Point(12, 338);
-            this.readerCheckBox.Name = "readerCheckBox";
-            this.readerCheckBox.Size = new System.Drawing.Size(70, 27);
-            this.readerCheckBox.TabIndex = 4;
-            this.readerCheckBox.Text = "Reorder";
-            this.readerCheckBox.UseVisualStyleBackColor = true;
-            this.readerCheckBox.CheckedChanged += new System.EventHandler(this.readerCheckBox_CheckedChanged);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 369);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(554, 25);
-            this.statusStrip1.TabIndex = 5;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(151, 20);
-            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            this.deleteLinkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.deleteLinkLabel.AutoSize = true;
+            this.deleteLinkLabel.Location = new System.Drawing.Point(78, 215);
+            this.deleteLinkLabel.Name = "deleteLinkLabel";
+            this.deleteLinkLabel.Size = new System.Drawing.Size(47, 17);
+            this.deleteLinkLabel.TabIndex = 6;
+            this.deleteLinkLabel.TabStop = true;
+            this.deleteLinkLabel.Text = "delete";
+            this.deleteLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.deleteLinkLabel_LinkClicked);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 394);
-            this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.readerCheckBox);
-            this.Controls.Add(this.editButton);
-            this.Controls.Add(this.addButton);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(356, 232);
+            this.Controls.Add(this.reorderLinkLabel);
+            this.Controls.Add(this.addLinkLabel);
+            this.Controls.Add(this.deleteLinkLabel);
+            this.Controls.Add(this.editLinkLabel);
             this.Controls.Add(this.commandListBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Launch";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,12 +126,10 @@
         #endregion
 
         private System.Windows.Forms.ListBox commandListBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.Button editButton;
-        private System.Windows.Forms.CheckBox readerCheckBox;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.LinkLabel editLinkLabel;
+        private System.Windows.Forms.LinkLabel addLinkLabel;
+        private System.Windows.Forms.LinkLabel reorderLinkLabel;
+        private System.Windows.Forms.LinkLabel deleteLinkLabel;
     }
 }
 

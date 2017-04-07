@@ -20,13 +20,16 @@ namespace Launch
         const string ApplicationTitle = "Launch";
         string _storagePath = "Launch.xml";
         bool _reorder = false;
+        bool _minified = false;
 
         BindingList<Command> _dataSource = new BindingList<Command>();
+
 
         public MainForm()
         {
             InitializeComponent();
         }
+
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -49,15 +52,8 @@ namespace Launch
             }
 
             commandListBox.DataSource = _dataSource;
-        }
 
-        private static string GetBrowser()
-        {
-            var value = Registry.GetValue(@"HKEY_CLASSES_ROOT\htmlfile\shell\open", "command", null);
-            if (value != null)
-                return value.ToString();
-            else
-                return null;
+            Fit();
         }
 
         private void commandListBox_DoubleClick(object sender, EventArgs e)
@@ -98,18 +94,53 @@ namespace Launch
             SaveCommands();
         }
 
-        private void addButton_Click(object sender, EventArgs e)
+        private void commandListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var command = commandListBox.SelectedItem as Command;
+
+            if (command != null)
+            {
+                ShowStatus($"{command.Application} {command.Arguments}");
+            }
+        }
+
+        private void addLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             AddOrEdit();
         }
 
-        private void editButton_Click(object sender, EventArgs e)
+        private void editLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (commandListBox.SelectedValue != null)
             {
                 AddOrEdit(commandListBox.SelectedValue as Command);
             }
         }
+
+        private void reorderLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            _reorder = !_reorder;
+            if (_reorder)
+                ShowStatus("Reorder commands by drag && drop. Press Reorder again when finished.");
+            else
+                ShowStatus("");
+        }
+
+        private void deleteLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var item = commandListBox.SelectedItem as Command;
+            if (item != null)
+            {
+                if (MessageBox.Show("Delete the selected item?", "Confirm", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+                {
+                    _dataSource.Remove(item);
+                    SaveCommands();
+                    Fit();
+                }
+            }
+        }
+
+
 
         private void AddOrEdit(Command command = null)
         {
@@ -123,6 +154,8 @@ namespace Launch
                     _dataSource.Add(dialog.Command);
                 }
                 SaveCommands();
+
+                Fit();
             }
         }
 
@@ -164,28 +197,45 @@ namespace Launch
             }
         }
 
-        private void readerCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            _reorder = !_reorder;
-            if (_reorder)
-                ShowStatus("Reorder commands by drag && drop. Press Reorder again when finished.");
-            else
-                ShowStatus("");
-        }
-
-        private void commandListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var command = commandListBox.SelectedItem as Command;
-
-            if (command != null)
-            {
-                ShowStatus($"{command.Application} {command.Arguments}");
-            }
-        }
-
         private void ShowStatus(string text)
         {
-            toolStripStatusLabel1.Text = text;
+            //toolStripStatusLabel1.Text = text;
+        }
+
+        private void Fit()
+        {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            Size = Measure();
+            var taskBarHeight = Screen.PrimaryScreen.Bounds.Bottom - Screen.PrimaryScreen.WorkingArea.Bottom;
+            Left = 0;
+            Top = Screen.PrimaryScreen.WorkingArea.Bottom - Height;
+        }
+
+        private Size Measure()
+        {
+            var measures = new SizeF();
+            using (var graphics = Graphics.FromHwnd(Handle))
+            {
+                foreach (var item in _dataSource)
+                {
+                    var size = graphics.MeasureString(item.ToString(), commandListBox.Font);
+                    measures.Height += size.Height + 4;
+                    measures.Width = Math.Max(measures.Width, size.Width);
+                }
+            }
+            measures.Height = Height - commandListBox.Height + measures.Height;
+            measures.Width = Width - commandListBox.Width + measures.Width;
+            measures.Width = Math.Max(reorderLinkLabel.Width + addLinkLabel.Width + editLinkLabel.Width + deleteLinkLabel.Width + 30, measures.Width);
+            return new Size(Convert.ToInt32(measures.Width), Convert.ToInt32(measures.Height));
+        }
+
+        private static string GetBrowser()
+        {
+            var value = Registry.GetValue(@"HKEY_CLASSES_ROOT\htmlfile\shell\open", "command", null);
+            if (value != null)
+                return value.ToString();
+            else
+                return null;
         }
     }
 }
