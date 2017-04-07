@@ -46,7 +46,7 @@
             this.commandListBox.Location = new System.Drawing.Point(0, 2);
             this.commandListBox.Margin = new System.Windows.Forms.Padding(2);
             this.commandListBox.Name = "commandListBox";
-            this.commandListBox.Size = new System.Drawing.Size(268, 173);
+            this.commandListBox.Size = new System.Drawing.Size(192, 173);
             this.commandListBox.TabIndex = 0;
             this.commandListBox.SelectedIndexChanged += new System.EventHandler(this.commandListBox_SelectedIndexChanged);
             this.commandListBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.commandListBox_DragDrop);
@@ -85,7 +85,7 @@
             // 
             this.reorderLinkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.reorderLinkLabel.AutoSize = true;
-            this.reorderLinkLabel.Location = new System.Drawing.Point(226, 175);
+            this.reorderLinkLabel.Location = new System.Drawing.Point(150, 175);
             this.reorderLinkLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.reorderLinkLabel.Name = "reorderLinkLabel";
             this.reorderLinkLabel.Size = new System.Drawing.Size(40, 13);
@@ -111,13 +111,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(267, 188);
+            this.ClientSize = new System.Drawing.Size(191, 188);
             this.Controls.Add(this.reorderLinkLabel);
             this.Controls.Add(this.addLinkLabel);
             this.Controls.Add(this.deleteLinkLabel);
             this.Controls.Add(this.editLinkLabel);
             this.Controls.Add(this.commandListBox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";

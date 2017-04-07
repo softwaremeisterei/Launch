@@ -28,6 +28,7 @@ namespace Launch
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            Text = null;
             var dir = AppDomain.CurrentDomain.BaseDirectory;
             _storagePath = Path.Combine(dir, _storagePath);
 
@@ -156,6 +157,8 @@ namespace Launch
                     _dataSource.Add(dialog.Command);
                 }
 
+                _dataSource.ResetBindings();
+
                 SaveCommands();
                 Fit();
             }
@@ -196,7 +199,7 @@ namespace Launch
         {
             var command = commandListBox.SelectedValue as Command;
 
-            if (command != null)
+            if (command != null && !string.IsNullOrEmpty(command.Application))
             {
                 Process.Start(command.Application, command.Arguments);
             }
