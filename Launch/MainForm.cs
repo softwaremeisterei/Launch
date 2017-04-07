@@ -31,7 +31,9 @@ namespace Launch
             var dir = AppDomain.CurrentDomain.BaseDirectory;
             _storagePath = Path.Combine(dir, _storagePath);
 
-            Text = $"{ApplicationTitle} V{Assembly.GetExecutingAssembly().GetName().Version.ToString()}";
+            var version = Assembly.GetExecutingAssembly().GetName().Version;
+
+            Text = $"{ApplicationTitle} V{version.Major}.{version.Minor}";
 
             LoadCommands();
 
