@@ -44,10 +44,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.commandListBox.FormattingEnabled = true;
             this.commandListBox.Location = new System.Drawing.Point(0, 2);
-            this.commandListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.commandListBox.Margin = new System.Windows.Forms.Padding(2);
             this.commandListBox.Name = "commandListBox";
             this.commandListBox.Size = new System.Drawing.Size(268, 173);
-            this.commandListBox.TabIndex = 1;
+            this.commandListBox.TabIndex = 0;
             this.commandListBox.SelectedIndexChanged += new System.EventHandler(this.commandListBox_SelectedIndexChanged);
             this.commandListBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.commandListBox_DragDrop);
             this.commandListBox.DragOver += new System.Windows.Forms.DragEventHandler(this.commandListBox_DragOver);
@@ -63,7 +63,7 @@
             this.editLinkLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.editLinkLabel.Name = "editLinkLabel";
             this.editLinkLabel.Size = new System.Drawing.Size(24, 13);
-            this.editLinkLabel.TabIndex = 6;
+            this.editLinkLabel.TabIndex = 2;
             this.editLinkLabel.TabStop = true;
             this.editLinkLabel.Text = "edit";
             this.editLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.editLinkLabel_LinkClicked);
@@ -76,7 +76,7 @@
             this.addLinkLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.addLinkLabel.Name = "addLinkLabel";
             this.addLinkLabel.Size = new System.Drawing.Size(25, 13);
-            this.addLinkLabel.TabIndex = 6;
+            this.addLinkLabel.TabIndex = 1;
             this.addLinkLabel.TabStop = true;
             this.addLinkLabel.Text = "add";
             this.addLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.addLinkLabel_LinkClicked);
@@ -89,7 +89,7 @@
             this.reorderLinkLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.reorderLinkLabel.Name = "reorderLinkLabel";
             this.reorderLinkLabel.Size = new System.Drawing.Size(40, 13);
-            this.reorderLinkLabel.TabIndex = 6;
+            this.reorderLinkLabel.TabIndex = 4;
             this.reorderLinkLabel.TabStop = true;
             this.reorderLinkLabel.Text = "reorder";
             this.reorderLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.reorderLinkLabel_LinkClicked);
@@ -102,7 +102,7 @@
             this.deleteLinkLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.deleteLinkLabel.Name = "deleteLinkLabel";
             this.deleteLinkLabel.Size = new System.Drawing.Size(36, 13);
-            this.deleteLinkLabel.TabIndex = 6;
+            this.deleteLinkLabel.TabIndex = 3;
             this.deleteLinkLabel.TabStop = true;
             this.deleteLinkLabel.Text = "delete";
             this.deleteLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.deleteLinkLabel_LinkClicked);
@@ -119,7 +119,7 @@
             this.Controls.Add(this.commandListBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "Launch";
             this.Load += new System.EventHandler(this.MainForm_Load);
