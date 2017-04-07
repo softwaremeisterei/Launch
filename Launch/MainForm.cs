@@ -36,7 +36,7 @@ namespace Launch
             var dir = AppDomain.CurrentDomain.BaseDirectory;
             _storagePath = Path.Combine(dir, _storagePath);
 
-            this.Text = $"{ApplicationTitle} V{Assembly.GetExecutingAssembly().GetName().Version.ToString()}";
+            Text = $"{ApplicationTitle} V{Assembly.GetExecutingAssembly().GetName().Version.ToString()}";
 
             LoadCommands();
 
@@ -204,7 +204,7 @@ namespace Launch
 
         private void Fit()
         {
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Size = Measure();
             var taskBarHeight = Screen.PrimaryScreen.Bounds.Bottom - Screen.PrimaryScreen.WorkingArea.Bottom;
             Left = 0;
@@ -219,7 +219,7 @@ namespace Launch
                 foreach (var item in _dataSource)
                 {
                     var size = graphics.MeasureString(item.ToString(), commandListBox.Font);
-                    measures.Height += size.Height + 4;
+                    measures.Height += size.Height + 1;
                     measures.Width = Math.Max(measures.Width, size.Width);
                 }
             }
