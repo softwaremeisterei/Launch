@@ -28,13 +28,16 @@ namespace Launch
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+#if true
             Text = null;
+            ControlBox = false;
+#else
+            var version = Assembly.GetExecutingAssembly().GetName().Version;
+            Text = $"{ApplicationTitle} V{version.Major}.{version.Minor}";
+#endif
+
             var dir = AppDomain.CurrentDomain.BaseDirectory;
             _storagePath = Path.Combine(dir, _storagePath);
-
-            var version = Assembly.GetExecutingAssembly().GetName().Version;
-
-            Text = $"{ApplicationTitle} V{version.Major}.{version.Minor}";
 
             LoadCommands();
 
@@ -69,30 +72,39 @@ namespace Launch
 
         private void commandListBox_MouseDown(object sender, MouseEventArgs e)
         {
-            if (!_reordering) return;
-            if (commandListBox.SelectedItem == null) return;
-
-            commandListBox.DoDragDrop(commandListBox.SelectedItem, DragDropEffects.Move);
+            if (_reordering)
+            {
+                if (commandListBox.SelectedItem != null)
+                {
+                    commandListBox.DoDragDrop(commandListBox.SelectedItem, DragDropEffects.Move);
+                }
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+                Edit();
+            }
         }
 
         private void commandListBox_DragOver(object sender, DragEventArgs e)
         {
-            if (!_reordering) return;
-
-            e.Effect = DragDropEffects.Move;
+            if (_reordering)
+            {
+                e.Effect = DragDropEffects.Move;
+            }
         }
 
         private void commandListBox_DragDrop(object sender, DragEventArgs e)
         {
-            if (!_reordering) return;
-
-            var point = commandListBox.PointToClient(new Point(e.X, e.Y));
-            var index = commandListBox.IndexFromPoint(point);
-            if (index < 0) index = commandListBox.Items.Count - 1;
-            var data = commandListBox.SelectedItem as Command;
-            _dataSource.Remove(data);
-            _dataSource.Insert(index, data);
-            SaveCommands();
+            if (_reordering)
+            {
+                var point = commandListBox.PointToClient(new Point(e.X, e.Y));
+                var index = commandListBox.IndexFromPoint(point);
+                if (index < 0) index = commandListBox.Items.Count - 1;
+                var data = commandListBox.SelectedItem as Command;
+                _dataSource.Remove(data);
+                _dataSource.Insert(index, data);
+                SaveCommands();
+            }
         }
 
         private void commandListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -112,10 +124,7 @@ namespace Launch
 
         private void editLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (commandListBox.SelectedValue != null)
-            {
-                AddOrEdit(commandListBox.SelectedValue as Command);
-            }
+            Edit();
         }
 
         private void reorderLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -143,6 +152,13 @@ namespace Launch
             }
         }
 
+        private void Edit()
+        {
+            if (commandListBox.SelectedValue != null)
+            {
+                AddOrEdit(commandListBox.SelectedValue as Command);
+            }
+        }
 
 
         private void AddOrEdit(Command command = null)
@@ -226,7 +242,7 @@ namespace Launch
                 foreach (var item in _dataSource)
                 {
                     var size = graphics.MeasureString(item.ToString(), commandListBox.Font);
-                    measures.Height += size.Height + 1;
+                    measures.Height += size.Height;
                     measures.Width = Math.Max(measures.Width, size.Width);
                 }
             }
@@ -246,6 +262,16 @@ namespace Launch
                 return value.ToString();
             else
                 return null;
+        }
+
+        private void minimizeLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void closeLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Close();
         }
     }
 }
