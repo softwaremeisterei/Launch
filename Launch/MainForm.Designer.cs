@@ -36,6 +36,8 @@
             this.deleteLinkLabel = new System.Windows.Forms.LinkLabel();
             this.minimizeLinkLabel = new System.Windows.Forms.LinkLabel();
             this.closeLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // commandListBox
@@ -136,6 +138,15 @@
             this.closeLinkLabel.Text = "x";
             this.closeLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.closeLinkLabel_LinkClicked);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Launch.Properties.Resources.logo_noframe;
+            this.pictureBox1.Location = new System.Drawing.Point(6, -2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(21, 20);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -148,11 +159,13 @@
             this.Controls.Add(this.deleteLinkLabel);
             this.Controls.Add(this.editLinkLabel);
             this.Controls.Add(this.commandListBox);
+            this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.Text = "Launch";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,6 +180,7 @@
         private System.Windows.Forms.LinkLabel deleteLinkLabel;
         private System.Windows.Forms.LinkLabel minimizeLinkLabel;
         private System.Windows.Forms.LinkLabel closeLinkLabel;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
