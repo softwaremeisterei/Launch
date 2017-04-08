@@ -28,13 +28,11 @@ namespace Launch
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-#if true
             Text = null;
             ControlBox = false;
-#else
+
             var version = Assembly.GetExecutingAssembly().GetName().Version;
-            Text = $"{ApplicationTitle} V{version.Major}.{version.Minor}";
-#endif
+            titleLabel.Text = $"{ApplicationTitle} v{version.Major}.{version.Minor}";
 
             var dir = AppDomain.CurrentDomain.BaseDirectory;
             _storagePath = Path.Combine(dir, _storagePath);

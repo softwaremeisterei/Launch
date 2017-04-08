@@ -37,6 +37,7 @@
             this.minimizeLinkLabel = new System.Windows.Forms.LinkLabel();
             this.closeLinkLabel = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.titleLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,11 +148,21 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
+            // titleLabel
+            // 
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Location = new System.Drawing.Point(34, 0);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(50, 17);
+            this.titleLabel.TabIndex = 6;
+            this.titleLabel.Text = "launch";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(255, 231);
+            this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.closeLinkLabel);
             this.Controls.Add(this.minimizeLinkLabel);
             this.Controls.Add(this.reorderLinkLabel);
@@ -181,6 +192,7 @@
         private System.Windows.Forms.LinkLabel minimizeLinkLabel;
         private System.Windows.Forms.LinkLabel closeLinkLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label titleLabel;
     }
 }
 
