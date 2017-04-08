@@ -1,4 +1,4 @@
 # launch
-Command Launcher (Windows Forms)
+Configurable Command Launcher (Windows Forms)
 
 ![Screenshot](launch-snapshot.png)
