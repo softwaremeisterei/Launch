@@ -45,10 +45,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.commandListBox.FormattingEnabled = true;
-            this.commandListBox.Location = new System.Drawing.Point(0, 15);
-            this.commandListBox.Margin = new System.Windows.Forms.Padding(2);
+            this.commandListBox.ItemHeight = 16;
+            this.commandListBox.Location = new System.Drawing.Point(0, 18);
+            this.commandListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.commandListBox.Name = "commandListBox";
-            this.commandListBox.Size = new System.Drawing.Size(192, 160);
+            this.commandListBox.Size = new System.Drawing.Size(255, 196);
             this.commandListBox.TabIndex = 0;
             this.commandListBox.SelectedIndexChanged += new System.EventHandler(this.commandListBox_SelectedIndexChanged);
             this.commandListBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.commandListBox_DragDrop);
@@ -62,10 +63,9 @@
             this.editLinkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.editLinkLabel.AutoSize = true;
             this.editLinkLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.editLinkLabel.Location = new System.Drawing.Point(31, 175);
-            this.editLinkLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.editLinkLabel.Location = new System.Drawing.Point(41, 215);
             this.editLinkLabel.Name = "editLinkLabel";
-            this.editLinkLabel.Size = new System.Drawing.Size(24, 13);
+            this.editLinkLabel.Size = new System.Drawing.Size(31, 17);
             this.editLinkLabel.TabIndex = 2;
             this.editLinkLabel.TabStop = true;
             this.editLinkLabel.Text = "edit";
@@ -76,10 +76,9 @@
             this.addLinkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addLinkLabel.AutoSize = true;
             this.addLinkLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.addLinkLabel.Location = new System.Drawing.Point(2, 175);
-            this.addLinkLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.addLinkLabel.Location = new System.Drawing.Point(3, 215);
             this.addLinkLabel.Name = "addLinkLabel";
-            this.addLinkLabel.Size = new System.Drawing.Size(25, 13);
+            this.addLinkLabel.Size = new System.Drawing.Size(32, 17);
             this.addLinkLabel.TabIndex = 1;
             this.addLinkLabel.TabStop = true;
             this.addLinkLabel.Text = "add";
@@ -90,10 +89,9 @@
             this.reorderLinkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.reorderLinkLabel.AutoSize = true;
             this.reorderLinkLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.reorderLinkLabel.Location = new System.Drawing.Point(150, 175);
-            this.reorderLinkLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.reorderLinkLabel.Location = new System.Drawing.Point(200, 215);
             this.reorderLinkLabel.Name = "reorderLinkLabel";
-            this.reorderLinkLabel.Size = new System.Drawing.Size(40, 13);
+            this.reorderLinkLabel.Size = new System.Drawing.Size(55, 17);
             this.reorderLinkLabel.TabIndex = 4;
             this.reorderLinkLabel.TabStop = true;
             this.reorderLinkLabel.Text = "reorder";
@@ -104,10 +102,9 @@
             this.deleteLinkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.deleteLinkLabel.AutoSize = true;
             this.deleteLinkLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.deleteLinkLabel.Location = new System.Drawing.Point(58, 175);
-            this.deleteLinkLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.deleteLinkLabel.Location = new System.Drawing.Point(77, 215);
             this.deleteLinkLabel.Name = "deleteLinkLabel";
-            this.deleteLinkLabel.Size = new System.Drawing.Size(36, 13);
+            this.deleteLinkLabel.Size = new System.Drawing.Size(47, 17);
             this.deleteLinkLabel.TabIndex = 3;
             this.deleteLinkLabel.TabStop = true;
             this.deleteLinkLabel.Text = "delete";
@@ -118,10 +115,9 @@
             this.minimizeLinkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.minimizeLinkLabel.AutoSize = true;
             this.minimizeLinkLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.minimizeLinkLabel.Location = new System.Drawing.Point(160, 0);
-            this.minimizeLinkLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.minimizeLinkLabel.Location = new System.Drawing.Point(213, 0);
             this.minimizeLinkLabel.Name = "minimizeLinkLabel";
-            this.minimizeLinkLabel.Size = new System.Drawing.Size(13, 13);
+            this.minimizeLinkLabel.Size = new System.Drawing.Size(16, 17);
             this.minimizeLinkLabel.TabIndex = 4;
             this.minimizeLinkLabel.TabStop = true;
             this.minimizeLinkLabel.Text = "_";
@@ -132,10 +128,9 @@
             this.closeLinkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.closeLinkLabel.AutoSize = true;
             this.closeLinkLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.closeLinkLabel.Location = new System.Drawing.Point(177, 0);
-            this.closeLinkLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.closeLinkLabel.Location = new System.Drawing.Point(236, 0);
             this.closeLinkLabel.Name = "closeLinkLabel";
-            this.closeLinkLabel.Size = new System.Drawing.Size(12, 13);
+            this.closeLinkLabel.Size = new System.Drawing.Size(14, 17);
             this.closeLinkLabel.TabIndex = 4;
             this.closeLinkLabel.TabStop = true;
             this.closeLinkLabel.Text = "x";
@@ -143,9 +138,9 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(191, 188);
+            this.ClientSize = new System.Drawing.Size(255, 231);
             this.Controls.Add(this.closeLinkLabel);
             this.Controls.Add(this.minimizeLinkLabel);
             this.Controls.Add(this.reorderLinkLabel);
@@ -154,7 +149,7 @@
             this.Controls.Add(this.editLinkLabel);
             this.Controls.Add(this.commandListBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.Text = "Launch";
             this.Load += new System.EventHandler(this.MainForm_Load);

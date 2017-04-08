@@ -57,6 +57,7 @@ namespace Launch
             Fit();
         }
 
+
         private void commandListBox_DoubleClick(object sender, EventArgs e)
         {
             Launch();
@@ -81,6 +82,12 @@ namespace Launch
             }
             else if (e.Button == MouseButtons.Right)
             {
+                var index = commandListBox.IndexFromPoint(e.X, e.Y);
+                if (index >= 0)
+                {
+                    commandListBox.SelectedIndex = index;
+                }
+
                 Edit();
             }
         }
@@ -117,6 +124,7 @@ namespace Launch
             }
         }
 
+
         private void addLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             AddOrEdit();
@@ -132,9 +140,15 @@ namespace Launch
             _reordering = !_reordering;
 
             if (_reordering)
+            {
+                commandListBox.ForeColor = Color.Indigo;
                 ShowStatus("Reorder commands by drag && drop. Press Reorder again when finished.");
+            }
             else
+            {
+                commandListBox.ForeColor = Color.Black;
                 ShowStatus("");
+            }
         }
 
         private void deleteLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -152,6 +166,18 @@ namespace Launch
             }
         }
 
+
+        private void minimizeLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void closeLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Close();
+        }
+
+
         private void Edit()
         {
             if (commandListBox.SelectedValue != null)
@@ -160,18 +186,20 @@ namespace Launch
             }
         }
 
-
         private void AddOrEdit(Command command = null)
         {
             var dialog = new CommandForm(command);
 
-            if (dialog.ShowDialog() == DialogResult.OK)
+            dialog.StartPosition = FormStartPosition.CenterParent;
+
+            if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 if (dialog.Command.Id == Guid.Empty)
                 {
                     dialog.Command.Id = Guid.NewGuid();
                     _dataSource.Add(dialog.Command);
                 }
+
 
                 _dataSource.ResetBindings();
 
@@ -221,16 +249,11 @@ namespace Launch
                 {
                     Process.Start(command.Application, command.Arguments);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
                 }
             }
-        }
-
-        private void ShowStatus(string text)
-        {
-            //toolStripStatusLabel1.Text = text;
         }
 
         private void Fit()
@@ -261,6 +284,12 @@ namespace Launch
             return new Size(Convert.ToInt32(measures.Width), Convert.ToInt32(measures.Height));
         }
 
+        private void ShowStatus(string text)
+        {
+            //toolStripStatusLabel1.Text = text;
+        }
+
+
         private static string GetDefaultBrowser()
         {
             var value = Registry.GetValue(@"HKEY_CLASSES_ROOT\htmlfile\shell\open", "command", null);
@@ -269,16 +298,6 @@ namespace Launch
                 return value.ToString();
             else
                 return null;
-        }
-
-        private void minimizeLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        private void closeLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Close();
         }
     }
 }
