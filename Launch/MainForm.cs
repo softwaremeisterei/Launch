@@ -297,5 +297,10 @@ namespace Launch
             else
                 return null;
         }
+
+        private void MainForm_Deactivate(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
     }
 }
