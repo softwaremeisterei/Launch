@@ -28,6 +28,8 @@ namespace Launch
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            if (DesignMode) return;
+
             Text = null;
             ControlBox = false;
 
@@ -300,7 +302,22 @@ namespace Launch
 
         private void MainForm_Deactivate(object sender, EventArgs e)
         {
-            WindowState = FormWindowState.Minimized;
+            //WindowState = FormWindowState.Minimized;
+        }
+
+        private void addTabLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void removeTabLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void renameTabLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }
